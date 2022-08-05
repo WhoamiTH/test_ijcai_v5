@@ -242,8 +242,8 @@ def transform_data_to_train_form(infor_method, train_data_Pos, train_data_neg, i
     
     np.random.shuffle(all_data_label)
 
-    transformed_data = all_data_label[:, :-4]
-    transformed_label = all_data_label[:, -4:]
+    transformed_data = all_data_label[:, :-1]
+    transformed_label = all_data_label[:, -1:].reshape(-1, 1)
 
     return transformed_data, transformed_label
 
