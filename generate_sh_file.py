@@ -22,8 +22,8 @@ early_stop_type_list = ['2000', '5000', '8000', '10000', '15000', '20000']
 # early_stop_type_list = [ '20000', '15000', '10000', '8000']
 # early_stop_type_list = [ '5000', '2000']
 # early stop 效果不太明显， 结果不太好
-test_infor_method_list = ['normal']
-# test_infor_method_list = [ 'normal', 'bm', 'im', 'both']
+# test_infor_method_list = ['normal']
+test_infor_method_list = [ 'normal', 'bm', 'im', 'both']
 
 ref_num_type_list = ['num']
 ref_times_list = ['10']

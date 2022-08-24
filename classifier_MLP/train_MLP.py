@@ -462,7 +462,6 @@ for epoch in range(num_epochs):
         break
     cur_train_epochs += 1
 
-for epoch in range(start_epochs+1, num_epochs+1):
     batch_x_pos, batch_x_neg, batch_pos_sel, batch_neg_sel = generate_batch_data(positive_data, negative_data, infor_method, informative_minority_data, border_majority_data, batch_size)
     train_x, train_y = transform_data_to_train_form(infor_method, batch_x_pos, batch_x_neg, batch_pos_sel, batch_neg_sel)
     train_x1 = train_x[:, :-1]
