@@ -537,13 +537,13 @@ for epoch in range(num_epochs):
         
 
         
-cur_train_method_list = [model_type, infor_method, str(save_epoch)]
-cur_train_method = '_'.join(cur_train_method_list)
-cur_model_name = './test_{0}/model_{1}/record_{2}/{1}_{3}'.format(dataset_name, cur_train_method, record_index, dataset_index)
-torch.save(net, cur_model_name)
-print('save model {0}'.format(cur_model_name))   
+# cur_train_method_list = [model_type, infor_method, str(save_epoch)]
+# cur_train_method = '_'.join(cur_train_method_list)
+# cur_model_name = './test_{0}/model_{1}/record_{2}/{1}_{3}'.format(dataset_name, cur_train_method, record_index, dataset_index)
+# torch.save(net, cur_model_name)
+# print('save model {0}'.format(cur_model_name))   
 
-torch.save(net, model_name)
+# torch.save(net, model_name)
 
 
 finish = time.process_time()

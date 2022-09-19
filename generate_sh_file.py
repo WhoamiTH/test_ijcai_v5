@@ -37,6 +37,7 @@ train_command_list = []
 test_command_list = []
 train_num = 0
 test_num = 0
+max_early_stop_type = early_stop_type_list[-1]
 
 command_list = []
 for dataset in dataset_list:
@@ -56,12 +57,15 @@ for dataset in dataset_list:
         # 根据训练模型，创建训练任务
         cur_train_com_list = []
         for dataset_index in range(1, 6):
-            cur_path = './test_{0}/model_{1}/record_{2}/{1}_{3}'.format(dataset, train_method, record_index, dataset_index)
-            if not os.path.exists(cur_path):
-                trian_com_str = 'python3 ./classifier_MLP/train_MLP.py dataset_name={0} dataset_index={1} record_index=1 device_id={2} train_method={3}\n'.format(dataset, dataset_index, device_id, train_method)
-                cur_train_com_list.append(trian_com_str)
-                # cur_valid_command_list.append(trian_com_str)
-                cur_train_num += 1
+            for item_early_stop_type in early_stop_type_list:
+                cur_train_method = 'MLP_{0}_{1}'.format(sample_method, item_early_stop_type)
+                cur_path = './test_{0}/model_{1}/record_{2}/{1}_{3}'.format(dataset, cur_train_method, record_index, dataset_index)
+                if not os.path.exists(cur_path):
+                    trian_com_str = 'python3 ./classifier_MLP/train_MLP.py dataset_name={0} dataset_index={1} record_index=1 device_id={2} train_method={3}\n'.format(dataset, dataset_index, device_id, train_method)
+                    cur_train_com_list.append(trian_com_str)
+                    # cur_valid_command_list.append(trian_com_str)
+                    cur_train_num += 1
+                    break
         if len(cur_train_com_list) > 0:
             cur_train_com_list.append('\n\n\n')
 
